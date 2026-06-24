@@ -104,11 +104,11 @@ score >= 3
 
 ## Technologies Used
 
-### - Python
-### - Linux Journald
-### - Regex
-### - Threading
-### - /proc Filesystem
+##### - Python
+##### - Linux Journald
+##### - Regex
+##### - Threading
+##### - /proc Filesystem
 
 ---
 
