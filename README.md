@@ -1,4 +1,4 @@
-Linux Host Intrusion Detection System (HIDS)
+# Linux Host Intrusion Detection System (HIDS)
 
 A lightweight Host Intrusion Detection System written in Python for Linux systems.
 
@@ -31,20 +31,18 @@ Process Monitoring
 Project Structure
 
 main.py
-
 ├── ssh.py
-
 └── proc.py
 
-main.py
+#    main.py
 
 Starts monitoring modules and runs them concurrently using Python threads.
 
-ssh.py
+#    ssh.py
 
 Monitors SSH logs and detects repeated authentication failures.
 
-proc.py
+#    proc.py
 
 Scans running processes and generates alerts for suspicious activity.
 
