@@ -6,9 +6,9 @@ The project monitors SSH authentication logs and running processes to detect pot
 
 ---
 
-Features
+## Features
 
-SSH Monitoring
+### SSH Monitoring
 
 - Live monitoring of SSH authentication events using "journalctl"
 - Failed login detection
@@ -16,7 +16,7 @@ SSH Monitoring
 - Sliding time-window analysis (60 seconds)
 - Alert cooldown to prevent alert spam
 
-Process Monitoring
+### Process Monitoring
 
 - Live monitoring of Linux processes via "/proc"
 - Process name extraction
@@ -28,45 +28,45 @@ Process Monitoring
 
 ---
 
-Project Structure
+### Project Structure
 
-main.py
-├── ssh.py
-└── proc.py
+#### main.py
+#### ├── ssh.py
+#### └── proc.py
 
-#    main.py
+##    main.py
 
 Starts monitoring modules and runs them concurrently using Python threads.
 
-#    ssh.py
+##    ssh.py
 
 Monitors SSH logs and detects repeated authentication failures.
 
-#    proc.py
+##    proc.py
 
 Scans running processes and generates alerts for suspicious activity.
 
 ---
 
-Detection Logic
+## Detection Logic
 
-SSH Brute Force Detection
+### SSH Brute Force Detection
 
-A brute-force alert is generated when:
+#### A brute-force alert is generated when:
 
 - 5 or more failed login attempts
 - from the same IP address
 - within 60 seconds
 
-Example:
+### Example:
 
 [ALERT] Possible Brute Force | ip=192.168.1.50 attempts=5 window=60s
 
 ---
 
-Process Detection
+### Process Detection
 
-Processes are converted into structured events:
+#### Processes are converted into structured events:
 
 {
     "pid": pid,
@@ -77,7 +77,7 @@ Processes are converted into structured events:
     "score": score
 }
 
-Current watchlist:
+#### Current watchlist:
 
 ping
 nc
@@ -86,98 +86,98 @@ socat
 python3
 tcpdump
 
-Scoring:
+#### Scoring:
 
 Condition| Score
 Process in watchlist| +3
 Contains /dev/tcp/| +5
 
-Alert threshold:
+#### Alert threshold:
 
 score >= 3
 
-Example:
+#### Example:
 
 [PROC] score=3 name=nc parent=lab.sh pid=12345 cmdline=nc -lvnp 4444
 
 ---
 
-Technologies Used
+## Technologies Used
 
-- Python
-- Linux Journald
-- Regex
-- Threading
-- /proc Filesystem
-
----
-
-Running
-
-Start the detector:
-
-python main.py
-
-Generate SSH activity:
-
-ssh localhost
-
-Generate failed logins:
-
-ssh fakeuser@localhost
-
-Generate process activity:
-
-ping localhost
-nc -lvnp 4444
-python3 -m http.server
+### - Python
+### - Linux Journald
+### - Regex
+### - Threading
+### - /proc Filesystem
 
 ---
 
-Concepts Learned
+## Running
 
-Linux
+### Start the detector:
 
-- journald
-- journalctl
-- SSH logging
-- /proc filesystem
-- Process identifiers (PID)
-- Parent process identifiers (PPID)
-- Process command lines
+#### python main.py
 
-Python
+#### Generate SSH activity:
 
-- Regular expressions
-- Dictionaries
-- Sets
-- Functions
-- Modules
-- Threading
-- State tracking
+#### ssh localhost
 
-Detection Engineering
+#### Generate failed logins:
 
-- Log parsing
-- Event creation
-- Sliding windows
-- Alert suppression
-- Process scoring
-- Parent-child process analysis
+#### ssh fakeuser@localhost
+
+#### Generate process activity:
+
+##### ping localhost
+##### nc -lvnp 4444
+##### python3 -m http.server
 
 ---
 
-Future Improvements
+## Concepts Learned
 
-- Alert logging to file
-- Configurable watchlists
-- JSON event output
-- Email or desktop notifications
-- Additional monitoring modules
-- C implementation
+## Linux
+
+### - journald
+### - journalctl
+### - SSH logging
+### - /proc filesystem
+### - Process identifiers (PID)
+### - Parent process identifiers (PPID)
+### - Process command lines
+
+## Python
+
+### - Regular expressions
+### - Dictionaries
+### - Sets
+### - Functions
+### - Modules
+### - Threading
+### - State tracking
+
+## Detection Engineering
+
+### - Log parsing
+### - Event creation
+### - Sliding windows
+### - Alert suppression
+### - Process scoring
+### - Parent-child process analysis
 
 ---
 
-Disclaimer
+## Future Improvements
+
+### - Alert logging to file
+### - Configurable watchlists
+### - JSON event output
+### - Email or desktop notifications
+### - Additional monitoring modules
+### - C implementation
+
+---
+
+## Disclaimer
 
 This project is intended for educational and research purposes to learn Linux internals, Python, and intrusion detection concepts.
