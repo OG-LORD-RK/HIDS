@@ -116,17 +116,17 @@ score >= 3
 
 ### Start the detector:
 
-#### python main.py
+##### python main.py
 
-#### Generate SSH activity:
+### Generate SSH activity:
 
-#### ssh localhost
+##### ssh localhost
 
-#### Generate failed logins:
+### Generate failed logins:
 
-#### ssh fakeuser@localhost
+###### ssh fakeuser@localhost
 
-#### Generate process activity:
+### Generate process activity:
 
 ##### ping localhost
 ##### nc -lvnp 4444
@@ -138,43 +138,43 @@ score >= 3
 
 ## Linux
 
-### - journald
-### - journalctl
-### - SSH logging
-### - /proc filesystem
-### - Process identifiers (PID)
-### - Parent process identifiers (PPID)
-### - Process command lines
+##### - journald
+##### - journalctl
+##### - SSH logging
+##### - /proc filesystem
+##### - Process identifiers (PID)
+##### - Parent process identifiers (PPID)
+##### - Process command lines
 
 ## Python
 
-### - Regular expressions
-### - Dictionaries
-### - Sets
-### - Functions
-### - Modules
-### - Threading
-### - State tracking
+##### - Regular expressions
+##### - Dictionaries
+##### - Sets
+##### - Functions
+##### - Modules
+##### - Threading
+##### - State tracking
 
 ## Detection Engineering
 
-### - Log parsing
-### - Event creation
-### - Sliding windows
-### - Alert suppression
-### - Process scoring
-### - Parent-child process analysis
+##### - Log parsing
+##### - Event creation
+##### - Sliding windows
+##### - Alert suppression
+##### - Process scoring
+##### - Parent-child process analysis
 
 ---
 
 ## Future Improvements
 
-### - Alert logging to file
-### - Configurable watchlists
-### - JSON event output
-### - Email or desktop notifications
-### - Additional monitoring modules
-### - C implementation
+##### - Alert logging to file
+##### - Configurable watchlists
+##### - JSON event output
+##### - Email or desktop notifications
+##### - Additional monitoring modules
+##### - C implementation
 
 ---
 
